@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'TrypReports',
-  description: 'Analytical Laboratory Information Sharing',
+  description: 'Psilocybe Chemical Analysis Data Sharing',
 }
 
 export default function RootLayout({
