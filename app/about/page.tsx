@@ -1,16 +1,16 @@
-import { ModeToggle } from '@/components/ui/mode-toggle'
+import { NavMenu } from '@/components/ui/nav-menu'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24 gap-20">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-24 lg:pl-0">
+          <NavMenu />
         <p className="fixed left-0 top-0 flex w-full justify-center items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           About&nbsp;
           <code className="font-mono font-bold">TrypReports</code>
           &nbsp;
-          <ModeToggle />
         </p>
       </div>
       <div className="flex flex-col place-items-center gap-5 p-8 lg:p-0">
