@@ -1,4 +1,3 @@
-import { NavMenu } from "@/components/ui/nav-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
@@ -15,8 +14,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 export default function ScrollTable() {
   return (
@@ -24,23 +21,26 @@ export default function ScrollTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Invoice</TableHead>
+            <TableHead className="">Sample Name</TableHead>
             <TableHead>Date Analyzed</TableHead>
-            <TableHead>Method</TableHead>
+            <TableHead>Analysis</TableHead>
+            <TableHead>Species / sub-species</TableHead>
             <TableHead className="text-right">Psilocybin</TableHead>
             <TableHead className="text-right">Psilocin</TableHead>
             <TableHead className="text-right">Baeocystin</TableHead>
-            <TableHead className="text-right">Nor-Baeocystin</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="">Total Tryptamines</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow>
-            <TableCell className="font-medium">INV001</TableCell>
-            <TableCell>Paid</TableCell>
-            <TableCell>Credit Card</TableCell>
-            <TableCell className="text-right">$250.00</TableCell>
+            <TableCell className="font-medium">APE A+</TableCell>
+            <TableCell>08/19/2023</TableCell>
+            <TableCell>Tryp Labs - HPLC</TableCell>
+            <TableCell>Cubensis</TableCell>
+            <TableCell className="text-right">4.0 mg/g</TableCell>
+            <TableCell className="text-right">1.0 mg/g</TableCell>
+            <TableCell className="text-right">0.0 mg/g</TableCell>
+            <TableCell className="text-right">5.0 mg/g</TableCell>
           </TableRow>
         </TableBody>
       </Table>
