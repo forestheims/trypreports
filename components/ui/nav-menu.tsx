@@ -1,21 +1,19 @@
-"use client"
- 
-import * as React from "react"
-import { RowsIcon } from "@radix-ui/react-icons"
- 
-import { Button } from "@/components/ui/button"
+"use client";
+
+import * as React from "react";
+import { RowsIcon } from "@radix-ui/react-icons";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import Link from "next/link"
-import { ModeToggle } from "./mode-toggle"
-
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
 
 export function NavMenu() {
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -44,5 +42,5 @@ export function NavMenu() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

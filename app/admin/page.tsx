@@ -1,5 +1,5 @@
-import { ModeToggle } from '@/components/ui/mode-toggle'
-import Image from 'next/image'
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import Image from "next/image";
 
 export default function Docs() {
   return (
@@ -13,5 +13,5 @@ export default function Docs() {
         </p>
       </div>
     </main>
-  )
+  );
 }
