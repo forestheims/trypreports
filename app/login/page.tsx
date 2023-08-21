@@ -1,7 +1,20 @@
 import { NavMenu } from "@/components/ui/nav-menu";
 import Messages from "./messages";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Login() {
+export default async function Login() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const { data } = await supabase.auth.getUser();
+  
+  const { data: {session} } = await supabase.auth.getSession();
+
+  if (session) {
+      redirect('/submit')
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">

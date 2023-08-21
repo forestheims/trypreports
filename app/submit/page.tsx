@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import LogoutButton from "@/components/ui/logout_button";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { SampleForm } from "./sample-form";
 
 export default async function SubmitSamples() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,10 +15,14 @@ export default async function SubmitSamples() {
   
   const { data: {session} } = await supabase.auth.getSession();
 
+  const addSample = async () => {
+
+  }
+
   if (!session) {
       redirect('/unauthenticated')
   }
-  
+
   return (
     // user ?
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">
@@ -34,12 +39,7 @@ export default async function SubmitSamples() {
             </Link>
         )}
       </div>
-      <form
-        action="/psilocybe"
-        method="post"
-        className="max-w-5xl w-full items-center justify-between font-mono text-sm ">
-
-        </form>
+      <SampleForm />
     </main>
     // : <div></div>
     // redirect
