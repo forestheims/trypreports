@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { RowsIcon } from "@radix-ui/react-icons";
 
@@ -12,8 +10,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-export function NavMenu() {
+export async function NavMenu() {
+  const supabase = createServerComponentClient({ cookies })
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,6 +31,9 @@ export function NavMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <ModeToggle />
+        {user ? <DropdownMenuItem>
+          <Link href="/submit">Add Samples</Link>
+        </DropdownMenuItem> : <></>}
         <DropdownMenuItem>
           <Link href="/">Home</Link>
         </DropdownMenuItem>
