@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>TrypReports Liability Notice</h1>
 
-## Getting Started
+**_Disclaimer: Use of Analytical Chemistry Data for Psilocybe Mushroom Samples_**
 
-First, run the development server:
+Welcome to TrypReports. We provide analytical chemistry data for
+Psilocybe mushroom samples to assist users in their research and
+understanding of these fungi. Before you proceed, please carefully
+read and acknowledge the following liability notice:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**_Information Purpose:_** The data provided on this
+website is for informational and educational purposes only. It is
+not intended to promote or condone the cultivation, possession,
+distribution, or use of Psilocybe mushrooms in any illegal or
+harmful manner.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**_Legal Compliance:_** It is your responsibility to
+ensure that your use of this information complies with all
+applicable local, state, and federal laws. The legality of
+Psilocybe mushrooms varies widely by jurisdiction, and you are
+solely responsible for understanding and adhering to the laws in
+your area.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**_Safety and Responsibility:_** Psilocybe mushrooms
+contain psychoactive compounds that can have powerful and
+unpredictable effects on individuals. If you choose to engage with
+these substances, you do so at your own risk. We strongly advise
+caution, responsibility, and moderation in any activities related
+to Psilocybe mushrooms.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**_Accuracy of Information:_** While we strive to
+provide accurate and reliable analytical chemistry data, we cannot
+guarantee the accuracy, completeness, or up-to-date nature of the
+information presented on this website. Users should independently
+verify any data or information for their specific purposes.
 
-## Learn More
+**_No Endorsement:_** The presence of analytical
+chemistry data on this website should not be construed as an
+endorsement or encouragement to engage in any illegal or harmful
+activities. We do not promote or endorse any specific use of
+Psilocybe mushrooms.
 
-To learn more about Next.js, take a look at the following resources:
+**_Limitation of Liability:_** TrypReports and its
+operators, owners, employees, and affiliates shall not be held
+liable for any direct or indirect damages, losses, or legal
+consequences resulting from your use of the information provided
+on this website.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**_Age Restriction:_** This website is intended for use
+by individuals who are of legal age in their jurisdiction. Users
+must confirm that they meet the legal age requirement for
+accessing and using this website.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+By using TrypReports, you acknowledge that you have read,
+understood, and agreed to the terms of this liability notice. Your
+use of the website signifies your acceptance of these terms and your
+commitment to using the information provided responsibly and
+legally.
 
-## Deploy on Vercel
+If you do not agree with any part of this notice, please refrain
+from using this website.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For any questions or concerns regarding this liability notice or the
+content of this website, please contact us.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for your understanding and responsible use of our
+resources.
+
+Sincerely,
+
+TrypReports
+
+<h2>Jordan Jacobs</h2>
+Founder & Chemist of Tryp Labs
+
+<h2>Forest Heims</h2>
+Software Developer & Chemist
