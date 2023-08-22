@@ -33,20 +33,18 @@ export function SampleForm() {
       "total_psilocybin_equivalents",
     );
     const supabase = createServerActionClient({ cookies });
-    const response = await supabase
-      .from("psilocybe")
-      .insert({
-        sample_id,
-        sample_name,
-        analytical_method,
-        analytical_lab,
-        date_analyzed,
-        psilocybin_content,
-        psilocin_content,
-        baeocystin_content,
-        nor_baeocystin_content,
-        total_psilocybin_equivalents,
-      });
+    const response = await supabase.from("psilocybe").insert({
+      sample_id,
+      sample_name,
+      analytical_method,
+      analytical_lab,
+      date_analyzed,
+      psilocybin_content,
+      psilocin_content,
+      baeocystin_content,
+      nor_baeocystin_content,
+      total_psilocybin_equivalents,
+    });
     console.log("response", response);
   };
 
@@ -105,31 +103,30 @@ export function SampleForm() {
           <div className="flex flex-col space-y-2">
             <Label htmlFor="date_analyzed">Date Analyzed</Label>
             <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant={"outline"}
-                          className={cn(
-                            "w-[280px] justify-start text-left font-normal",
-                            // !date && "text-muted-foreground"
-                          )}
-                        >
-                          {/* <CalendarIcon className="mr-2 h-4 w-4" />
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-[280px] justify-start text-left font-normal",
+                    // !date && "text-muted-foreground"
+                  )}
+                >
+                  {/* <CalendarIcon className="mr-2 h-4 w-4" />
                           {date ? (
                         format(date, "PPP")
                       ) : (
                         <span>Pick a date</span>
                       )} */}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0">
-                        <Calendar
-                          mode="single"
-                          // selected={date}
-                          // onSelect={setDate}
-                         
-                        />
-                      </PopoverContent>
-                  </Popover>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  // selected={date}
+                  // onSelect={setDate}
+                />
+              </PopoverContent>
+            </Popover>
             <p className="text-sm text-muted-foreground">
               Date the sample was analyzed.
             </p>

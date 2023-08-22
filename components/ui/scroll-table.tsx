@@ -1,3 +1,7 @@
+"use client";
+
+import { createClient } from "@supabase/supabase-js";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
@@ -14,8 +18,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useEffect, useState } from "react";
 
 export default function ScrollTable() {
+  const [samples, setSamples] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const supabase = createClientComponentClient();
+      const { data, error } = await supabase.from("psilocybe").select();
+      setSamples(data || []);
+    };
+    fetchData();
+  }, []);
+
   return (
     <ScrollArea className=" h-[300px] w-full rounded-md border p-4">
       <Table>
@@ -32,16 +49,33 @@ export default function ScrollTable() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">APE A+</TableCell>
-            <TableCell>08/19/2023</TableCell>
-            <TableCell>Tryp Labs - HPLC</TableCell>
-            <TableCell>Cubensis</TableCell>
-            <TableCell className="text-right">4.0 mg/g</TableCell>
-            <TableCell className="text-right">1.0 mg/g</TableCell>
-            <TableCell className="text-right">0.0 mg/g</TableCell>
-            <TableCell className="text-right">5.0 mg/g</TableCell>
-          </TableRow>
+          {samples.map((sample) => {
+            return (
+              <TableRow key={sample.id}>
+                <TableCell className="font-medium">
+                  {sample.sample_name}
+                </TableCell>
+                <TableCell>{sample.date_analyzed}</TableCell>
+                <TableCell>
+                  {sample.analytical_lab}
+                  {sample.analytical_method}
+                </TableCell>
+                <TableCell>{sample.sample_name}</TableCell>
+                <TableCell className="text-right">
+                  {sample.psilocybin_content}
+                </TableCell>
+                <TableCell className="text-right">
+                  {sample.psilocin_content}
+                </TableCell>
+                <TableCell className="text-right">
+                  {sample.baeocystin_content}
+                </TableCell>
+                <TableCell className="text-right">
+                  {sample.total_psilocybin_equivalents}
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </ScrollArea>
