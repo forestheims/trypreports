@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/components/ui/logout_button";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import {
+  createServerActionClient,
+  createServerComponentClient,
+} from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { SampleForm } from "./sample-form";
 
@@ -12,20 +15,18 @@ export default async function SubmitSamples() {
   const supabase = createServerComponentClient({ cookies });
 
   const { data } = await supabase.auth.getUser();
-  
-  const { data: {session} } = await supabase.auth.getSession();
 
-  const addSample = async () => {
-
-  }
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
   if (!session) {
-      redirect('/unauthenticated')
+    redirect("/unauthenticated");
   }
 
   return (
     // user ?
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">
+    <main className="flex min-h-screen flex-col items-start justify-start lg:p-24 pt-24 gap-8">
       <div className="z-9 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4">
         <NavMenu />
         {data.user ? (
@@ -34,9 +35,12 @@ export default async function SubmitSamples() {
             <LogoutButton />
           </div>
         ) : (
-          <Link href="/login" className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10">
-              <Button variant="outline">Login</Button>
-            </Link>
+          <Link
+            href="/login"
+            className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10"
+          >
+            <Button variant="outline">Login</Button>
+          </Link>
         )}
       </div>
       <SampleForm />

@@ -14,11 +14,11 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export async function NavMenu() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   return (
     <DropdownMenu>
@@ -29,11 +29,15 @@ export async function NavMenu() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="start" className="">
         <ModeToggle />
-        {user ? <DropdownMenuItem>
-          <Link href="/submit">Add Samples</Link>
-        </DropdownMenuItem> : <></>}
+        {user ? (
+          <DropdownMenuItem>
+            <Link href="/submit">Add Samples</Link>
+          </DropdownMenuItem>
+        ) : (
+          <></>
+        )}
         <DropdownMenuItem>
           <Link href="/">Home</Link>
         </DropdownMenuItem>

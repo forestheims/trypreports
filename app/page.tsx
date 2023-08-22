@@ -8,25 +8,28 @@ import { cookies } from "next/headers";
 import { Button } from "@/components/ui/button";
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">
       <div className="z-9 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4">
         {user ? (
-              <div className="flex items-center gap-4">
-                Hey, {user.email}!
-                <LogoutButton />
-              </div>
-            ) : (
-              <Link href="/login" className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10">
-              <Button variant="outline">Login</Button>
-            </Link>
-         )} 
+          <div className="flex items-center gap-4">
+            Hey, {user.email}!
+            <LogoutButton />
+          </div>
+        ) : (
+          <Link
+            href="/login"
+            className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10"
+          >
+            <Button variant="outline">Login</Button>
+          </Link>
+        )}
         <NavMenu />
         <p className="fixed left-0 top-0 flex w-full justify-center items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           &nbsp;Welcome to&nbsp;
