@@ -44,13 +44,6 @@ export default async function Docs() {
           &nbsp;
           <Link href="https://github.com/forestheims/alis">Front End Repo</Link>
         </div>
-        <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
-          <GitHubLogoIcon />
-          &nbsp;
-          <Link href="https://github.com/forestheims/alis-data">
-            Back End Repo
-          </Link>
-        </div>
       </div>
     </main>
   );

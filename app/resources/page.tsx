@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { GlobeIcon } from "@radix-ui/react-icons";
 
 export default async function Resources() {
   const supabase = createServerComponentClient({ cookies });
@@ -36,6 +37,13 @@ export default async function Resources() {
             <Button variant="outline">Login</Button>
           </Link>
         )}
+      </div>
+      <div className="flex flex-col max-w-5xl w-full items-start p-4 gap-10">
+        <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
+          <GlobeIcon />
+          &nbsp;
+          <Link href="https://github.com/forestheims/alis">Front End Repo</Link>
+        </div>
       </div>
     </main>
   );

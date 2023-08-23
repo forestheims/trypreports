@@ -30,7 +30,7 @@ export async function NavMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="">
-        <ModeToggle />
+          <ModeToggle />
         {user ? (
           <DropdownMenuItem>
             <Link href="/submit">Add Samples</Link>
