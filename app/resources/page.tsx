@@ -5,6 +5,21 @@ import { Button } from "@/components/ui/button";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { GlobeIcon } from "@radix-ui/react-icons";
+const resources = [
+  { name: "Tryp Labs", url: "https://tryplabs.com" },
+  {
+    name: "Psilocye - Wikipedia",
+    url: "https://en.wikipedia.org/wiki/Psilocybe",
+  },
+  {
+    name: "Erowid Psilocybin Mushroom Vault",
+    url: "https://erowid.org/plants/mushrooms/mushrooms.shtml",
+  },
+  {
+    name: "Center for Psychedelic & Consciousness Research",
+    url: "https://hopkinspsychedelic.org/",
+  },
+];
 
 export default async function Resources() {
   const supabase = createServerComponentClient({ cookies });
@@ -39,11 +54,16 @@ export default async function Resources() {
         )}
       </div>
       <div className="flex flex-col max-w-5xl w-full items-start p-4 gap-10">
-        <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
-          <GlobeIcon />
-          &nbsp;
-          <Link href="https://github.com/forestheims/alis">Front End Repo</Link>
-        </div>
+        {resources.map((resource) => (
+          <div
+            key={resource.url}
+            className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4"
+          >
+            <GlobeIcon />
+            &nbsp;
+            <Link href={resource.url}>{resource.name}</Link>
+          </div>
+        ))}
       </div>
     </main>
   );

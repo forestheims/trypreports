@@ -15,7 +15,7 @@ export default async function About() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24 gap-10">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4 lg:pl-0">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4 pr-4">
         <div className="">
           <NavMenu />
         </div>

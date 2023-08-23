@@ -26,24 +26,31 @@ export default async function SubmitSamples() {
 
   return (
     // user ?
-    <main className="flex min-h-screen flex-col items-start justify-start lg:p-24 pt-24 gap-8">
+    <main className="flex min-h-screen flex-col items-center justify-start lg:p-24 pt-24 gap-8">
       <div className="z-9 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4">
         <NavMenu />
+        <p className="fixed left-0 top-0 flex w-full justify-center items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          Add samples to&nbsp;
+          <code className="font-mono font-bold">TrypReports</code>
+          &nbsp;
+        </p>
         {data.user ? (
-          <div className="flex items-center gap-4">
+          <div className="fixed top-24 lg:top-4 right-0 z-10 mr-4 flex items-center gap-4">
             Hey, {data.user.email}!
             <LogoutButton />
           </div>
         ) : (
           <Link
             href="/login"
-            className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10"
+            className="fixed top-24 lg:top-4 right-0 z-10 mr-4"
           >
             <Button variant="outline">Login</Button>
           </Link>
         )}
       </div>
-      <SampleForm />
+      <div>
+        <SampleForm />
+      </div>
     </main>
     // : <div></div>
     // redirect

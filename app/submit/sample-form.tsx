@@ -49,7 +49,7 @@ export function SampleForm() {
   };
 
   return (
-    <div className="p-4 m-4 border-2 rounded-lg">
+    <div className="p-4 m-4 border-2 rounded-lg max-w-5xl">
       <h1 className="text-lg">Add Sample</h1>
       <form action={addSample} className="space-y-8">
         <div className="flex gap-4 flex-wrap justify-between">
