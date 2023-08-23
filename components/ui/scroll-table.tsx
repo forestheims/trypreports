@@ -1,7 +1,5 @@
 "use client";
 
-import { createClient } from "@supabase/supabase-js";
-
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
@@ -20,15 +18,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
+import { MushroomAnalysis } from "@/types/sample";
 
 export default function ScrollTable() {
-  const [samples, setSamples] = useState([]);
+  const [samples, setSamples] = useState<MushroomAnalysis | any>([{}]);
 
   useEffect(() => {
     const fetchData = async () => {
       const supabase = createClientComponentClient();
       const { data, error } = await supabase.from("psilocybe").select();
-      setSamples(data || []);
+      if(data) {
+        setSamples(data);
+      }
     };
     fetchData();
   }, []);
@@ -38,14 +39,14 @@ export default function ScrollTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="">Sample Name</TableHead>
+            <TableHead className="">Sample ID</TableHead>
+            <TableHead>Sample name</TableHead>
             <TableHead>Date Analyzed</TableHead>
             <TableHead>Analysis</TableHead>
-            <TableHead>Species / sub-species</TableHead>
             <TableHead className="text-right">Psilocybin</TableHead>
             <TableHead className="text-right">Psilocin</TableHead>
             <TableHead className="text-right">Baeocystin</TableHead>
-            <TableHead className="">Total Tryptamines</TableHead>
+            <TableHead className="">Total Psilocybin Equivalents</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -53,14 +54,14 @@ export default function ScrollTable() {
             return (
               <TableRow key={sample.id}>
                 <TableCell className="font-medium">
-                  {sample.sample_name}
-                </TableCell>
-                <TableCell>{sample.date_analyzed}</TableCell>
-                <TableCell>
-                  {sample.analytical_lab}
-                  {sample.analytical_method}
+                  {sample.sample_id}
                 </TableCell>
                 <TableCell>{sample.sample_name}</TableCell>
+                <TableCell>{sample.date_analyzed}</TableCell>
+                <TableCell>
+                  {sample.analytical_method} by 
+                  {sample.analytical_lab}
+                </TableCell>
                 <TableCell className="text-right">
                   {sample.psilocybin_content}
                 </TableCell>

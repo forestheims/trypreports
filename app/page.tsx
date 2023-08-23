@@ -16,16 +16,16 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">
-      <div className="z-9 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4">
+      <div className="z-9 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pr-4 pl-4">
         {user ? (
-          <div className="flex items-center gap-4">
+          <div className="fixed top-18 md:top-4 right-0 z-10 mr-4 flex items-center gap-4">
             Hey, {user.email}!
             <LogoutButton />
           </div>
         ) : (
           <Link
             href="/login"
-            className="fixed right-12 top-18 lg:top-4 lg:right-4 z-10"
+            className="fixed top-18 md:top-4 right-0 z-10 mr-4"
           >
             <Button variant="outline">Login</Button>
           </Link>

@@ -1,11 +1,21 @@
+import { Button } from "@/components/ui/button";
+import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
-export default function Docs() {
+export default async function Docs() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-start lg:p-24 pt-24 gap-20">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono pl-4 text-sm lg:flex">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono pl-4 pr-4 text-sm lg:flex">
         <div className="">
           <NavMenu />
         </div>
@@ -14,14 +24,27 @@ export default function Docs() {
           <code className="font-mono font-bold">TrypReports</code>
           &nbsp;Docs&nbsp;
         </p>
+        {user ? (
+          <div className="fixed top-24 lg:top-4 right-0 z-10 mr-4 flex items-center gap-4">
+            Hey, {user.email}!
+            <LogoutButton />
+          </div>
+        ) : (
+          <Link
+            href="/login"
+            className="fixed top-24 lg:top-4 right-0 z-10 mr-4"
+          >
+            <Button variant="outline">Login</Button>
+          </Link>
+        )}
       </div>
-      <div className="flex flex-col max-w-5xl w-full items-start lg:ml-40 p-4 gap-10">
-        <div className="flex max-w-5xl w-full items-center hover:text-orange-600 cursor-pointer">
+      <div className="flex flex-col max-w-5xl w-full items-start p-4 gap-10">
+        <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
           <GitHubLogoIcon />
           &nbsp;
           <Link href="https://github.com/forestheims/alis">Front End Repo</Link>
         </div>
-        <div className="flex max-w-5xl w-full items-center hover:text-orange-600 cursor-pointer">
+        <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
           <GitHubLogoIcon />
           &nbsp;
           <Link href="https://github.com/forestheims/alis-data">

@@ -1,8 +1,18 @@
+import { Button } from "@/components/ui/button";
+import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
-export default function About() {
+export default async function About() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24 gap-10">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pl-4 lg:pl-0">
@@ -14,6 +24,19 @@ export default function About() {
           <code className="font-mono font-bold">TrypReports</code>
           &nbsp;
         </p>
+        {user ? (
+          <div className="fixed top-24 lg:top-4 right-0 z-10 mr-4 flex items-center gap-4">
+            Hey, {user.email}!
+            <LogoutButton />
+          </div>
+        ) : (
+          <Link
+            href="/login"
+            className="fixed top-24 lg:top-4 right-0 z-10 mr-4"
+          >
+            <Button variant="outline">Login</Button>
+          </Link>
+        )}
       </div>
       <div className="flex flex-col place-items-center gap-5 p-8 lg:p-0">
         <Link className="flex place-items-center gap-2 p-8 lg:p-0" href="/">
