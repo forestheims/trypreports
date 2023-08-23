@@ -23,7 +23,7 @@ export default async function Explore() {
           Explore&nbsp;
           <code className="font-mono font-bold">TrypReports</code>
         </p>
-          {user ? (
+        {user ? (
           <div className="fixed top-24 lg:top-4 right-0 z-10 mr-4 flex items-center gap-4">
             Hey, {user.email}!
             <LogoutButton />
@@ -36,7 +36,6 @@ export default async function Explore() {
             <Button variant="outline">Login</Button>
           </Link>
         )}
-        
       </div>
       <div className="max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex p-4">
         <ScrollTable />

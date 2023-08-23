@@ -147,7 +147,11 @@ export function SampleForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="psilocin_content">Psilocin Content (mg/g)</Label>
-            <Input placeholder="##.##" name="psilocin_content" id="psilocin_content" />
+            <Input
+              placeholder="##.##"
+              name="psilocin_content"
+              id="psilocin_content"
+            />
             <p className="text-sm text-muted-foreground">
               Test results for psilocin content.
             </p>
@@ -156,7 +160,11 @@ export function SampleForm() {
             <Label htmlFor="baeocystin_content">
               Baeocystin Content (mg/g)
             </Label>
-            <Input placeholder="##.##" name="baeocystin_content" id="baeocystin_content" />
+            <Input
+              placeholder="##.##"
+              name="baeocystin_content"
+              id="baeocystin_content"
+            />
             <p className="text-sm text-muted-foreground">
               Test results for baeocystin content.
             </p>
@@ -165,7 +173,11 @@ export function SampleForm() {
             <Label htmlFor="nor_baeocystin_content">
               Nor-Baeocystin Content (mg/g)
             </Label>
-            <Input placeholder="##.##" name="nor_baeocystin_content" id="nor_baeocystin_content" />
+            <Input
+              placeholder="##.##"
+              name="nor_baeocystin_content"
+              id="nor_baeocystin_content"
+            />
             <p className="text-sm text-muted-foreground">
               Test results for nor-baeocystin content.
             </p>
@@ -174,7 +186,11 @@ export function SampleForm() {
             <Label htmlFor="total_psilocybin_equivalents">
               Total Psilocybin Equivalents (mg/g)
             </Label>
-            <Input placeholder="##.##" name="total_psilocybin_equivalents" id="total_psilocybin_equivalents" />
+            <Input
+              placeholder="##.##"
+              name="total_psilocybin_equivalents"
+              id="total_psilocybin_equivalents"
+            />
             <p className="text-sm text-muted-foreground">
               Total quantified &apos;psilocybin equivalents&apos;.
             </p>

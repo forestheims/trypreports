@@ -27,7 +27,7 @@ export default function ScrollTable() {
     const fetchData = async () => {
       const supabase = createClientComponentClient();
       const { data, error } = await supabase.from("psilocybe").select();
-      if(data) {
+      if (data) {
         setSamples(data);
       }
     };
@@ -59,7 +59,7 @@ export default function ScrollTable() {
                 <TableCell>{sample.sample_name}</TableCell>
                 <TableCell>{sample.date_analyzed}</TableCell>
                 <TableCell>
-                  {sample.analytical_method} by 
+                  {sample.analytical_method} by
                   {sample.analytical_lab}
                 </TableCell>
                 <TableCell className="text-right">
