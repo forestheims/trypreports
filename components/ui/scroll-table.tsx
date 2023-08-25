@@ -50,7 +50,7 @@ export default function ScrollTable() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {samples.map((sample) => {
+          {samples.map((sample: any) => {
             return (
               <TableRow key={sample.id}>
                 <TableCell className="font-medium">
