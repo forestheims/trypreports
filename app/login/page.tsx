@@ -15,6 +15,8 @@ export default async function Login() {
 
   if (session) {
     redirect("/submit");
+    // console.log("Session:", session)
+    // # this console log currently prints to the server side console
   }
 
   return (

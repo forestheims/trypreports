@@ -68,9 +68,3 @@ resources.
 Sincerely,
 
 TrypReports
-
-<h2>Jordan Jacobs</h2>
-Founder & Chemist of Tryp Labs
-
-<h2>Forest Heims</h2>
-Software Developer & Chemist
