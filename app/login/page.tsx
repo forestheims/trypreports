@@ -14,8 +14,8 @@ export default async function Login() {
   } = await supabase.auth.getSession();
 
   if (session) {
-    redirect("/submit");
-    // console.log("Session:", session)
+    // redirect("/submit");
+    console.log("Session:", session)
     // # this console log currently prints to the server side console
   }
 

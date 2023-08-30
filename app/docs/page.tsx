@@ -1,17 +1,21 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { cookies } from "next/headers";
+import { useUser } from "@/lib/userProvider";
 
-export default async function Docs() {
-  const supabase = createServerComponentClient({ cookies });
+export default function Docs() {
+  // const supabase = createServerComponentClient({ cookies });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+  const { user } = useUser();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start lg:p-24 pt-24 gap-20">

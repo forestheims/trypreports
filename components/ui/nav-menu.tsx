@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 import { RowsIcon } from "@radix-ui/react-icons";
 
@@ -10,15 +12,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { cookies } from "next/headers";
+import { useUser } from "@/lib/userProvider";
 
-export async function NavMenu() {
-  const supabase = createServerComponentClient({ cookies });
+export function NavMenu() {
+  // const supabase = createServerComponentClient({ cookies });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+  const { user } = useUser();
 
   return (
     <DropdownMenu>
@@ -29,29 +33,29 @@ export async function NavMenu() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="">
+      <DropdownMenuContent align="start" className="w-full">
         <ModeToggle />
         {user ? (
           <DropdownMenuItem>
-            <Link href="/submit">Add Samples</Link>
+            <Link href="/submit" className="w-full">Add Samples</Link>
           </DropdownMenuItem>
         ) : (
           <></>
         )}
         <DropdownMenuItem>
-          <Link href="/">Home</Link>
+          <Link href="/" className="w-full">Home</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/explore">Explore</Link>
+          <Link href="/explore" className="w-full">Explore</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/docs">Docs</Link>
+          <Link href="/docs" className="w-full">Docs</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/resources">Resources</Link>
+          <Link href="/resources" className="w-full">Resources</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/about">About</Link>
+          <Link href="/about" className="w-full">About</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
