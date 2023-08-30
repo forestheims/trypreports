@@ -1,3 +1,5 @@
+"use client"
+
 import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
 import Link from "next/link";
@@ -6,7 +8,7 @@ import { GlobeIcon } from "@radix-ui/react-icons";
 import { resources } from "./assets";
 import { useUser } from "@/lib/userProvider";
 
-export default async function Resources() {
+export default function Resources() {
   const { user } = useUser();
 
   return (
