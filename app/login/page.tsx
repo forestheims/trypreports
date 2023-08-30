@@ -1,21 +1,16 @@
+"use client";
+
 import { NavMenu } from "@/components/ui/nav-menu";
 import Messages from "./messages";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { useUser } from "@/lib/userProvider";
 
-export default async function Login() {
-  const supabase = createServerComponentClient({ cookies });
+export default function Login() {
+  const { user } = useUser();
 
-  const { data } = await supabase.auth.getUser();
-
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
-  if (session) {
-    // redirect("/submit");
-    console.log("Session:", session)
+  if (user) {
+    redirect("/submit");
+    // console.log("Session:", session)
     // # this console log currently prints to the server side console
   }
 

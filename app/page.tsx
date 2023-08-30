@@ -1,18 +1,14 @@
-import { AuthSheet } from "@/components/ui/auth-sheet";
+"use client";
+
 import { NavMenu } from "@/components/ui/nav-menu";
 import Image from "next/image";
 import Link from "next/link";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import LogoutButton from "@/components/ui/logout_button";
-import { cookies } from "next/headers";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@/lib/userProvider";
 
-export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+export default function Home() {
+  const { user } = useUser();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 pt-24">

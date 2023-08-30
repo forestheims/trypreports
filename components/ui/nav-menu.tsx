@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { RowsIcon } from "@radix-ui/react-icons";
@@ -37,25 +37,37 @@ export function NavMenu() {
         <ModeToggle />
         {user ? (
           <DropdownMenuItem>
-            <Link href="/submit" className="w-full">Add Samples</Link>
+            <Link href="/submit" className="w-full">
+              Add Samples
+            </Link>
           </DropdownMenuItem>
         ) : (
           <></>
         )}
         <DropdownMenuItem>
-          <Link href="/" className="w-full">Home</Link>
+          <Link href="/" className="w-full">
+            Home
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/explore" className="w-full">Explore</Link>
+          <Link href="/explore" className="w-full">
+            Explore
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/docs" className="w-full">Docs</Link>
+          <Link href="/docs" className="w-full">
+            Docs
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/resources" className="w-full">Resources</Link>
+          <Link href="/resources" className="w-full">
+            Resources
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <Link href="/about" className="w-full">About</Link>
+          <Link href="/about" className="w-full">
+            About
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

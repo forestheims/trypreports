@@ -4,10 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/components/ui/logout_button";
-import {
-  createServerActionClient,
-  createServerComponentClient,
-} from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { SampleForm } from "./sample-form";
 

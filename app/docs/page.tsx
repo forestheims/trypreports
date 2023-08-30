@@ -1,20 +1,13 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
-import { cookies } from "next/headers";
 import { useUser } from "@/lib/userProvider";
 
 export default function Docs() {
-  // const supabase = createServerComponentClient({ cookies });
-
-  // const {
-  //   data: { user },
-  // } = await supabase.auth.getUser();
   const { user } = useUser();
 
   return (
@@ -46,7 +39,9 @@ export default function Docs() {
         <div className="flex items-center hover:text-orange-600 cursor-pointer border-2 hover:border-orange-300 rounded-lg p-4">
           <GitHubLogoIcon />
           &nbsp;
-          <Link href="https://github.com/forestheims/trypreports">Front End Repo</Link>
+          <Link href="https://github.com/forestheims/trypreports">
+            Front End Repo
+          </Link>
         </div>
       </div>
     </main>

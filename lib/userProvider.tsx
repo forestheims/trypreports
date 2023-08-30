@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 // import { cookies } from 'next/headers';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 // Define a TypeScript interface for the user object
-import { User } from '@supabase/auth-helpers-nextjs';
-
+import { User } from "@supabase/auth-helpers-nextjs";
 
 // Define the shape of your UserProvider props
 interface UserProviderProps {
@@ -25,7 +24,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error('useUser must be used within a UserProvider');
+    throw new Error("useUser must be used within a UserProvider");
   }
   return context;
 };
@@ -34,12 +33,11 @@ export const useUser = () => {
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const supabase = createClientComponentClient()
+  const supabase = createClientComponentClient();
 
   useEffect(() => {
     // Check if a user is logged in using supabase.auth.getSession
-    const checkUser = async () => {     
-
+    const checkUser = async () => {
       const {
         data: { session },
       } = await supabase.auth.getSession();

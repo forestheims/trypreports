@@ -2,31 +2,12 @@ import LogoutButton from "@/components/ui/logout_button";
 import { NavMenu } from "@/components/ui/nav-menu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { GlobeIcon } from "@radix-ui/react-icons";
-const resources = [
-  { name: "Tryp Labs", url: "https://tryplabs.com" },
-  {
-    name: "Psilocye - Wikipedia",
-    url: "https://en.wikipedia.org/wiki/Psilocybe",
-  },
-  {
-    name: "Erowid Psilocybin Mushroom Vault",
-    url: "https://erowid.org/plants/mushrooms/mushrooms.shtml",
-  },
-  {
-    name: "Center for Psychedelic & Consciousness Research",
-    url: "https://hopkinspsychedelic.org/",
-  },
-];
+import { resources } from "./assets";
+import { useUser } from "@/lib/userProvider";
 
 export default async function Resources() {
-  const supabase = createServerComponentClient({ cookies });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { user } = useUser();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start pt-24 lg:p-24 gap-20">
