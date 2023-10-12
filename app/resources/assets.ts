@@ -6,7 +6,7 @@ export interface Resource {
 export const resources: Resource[] = [
   { name: "Tryp Labs", url: "https://tryplabs.com" },
   {
-    name: "Psilocye - Wikipedia",
+    name: "Psilocybe - Wikipedia",
     url: "https://en.wikipedia.org/wiki/Psilocybe",
   },
   {

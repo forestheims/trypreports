@@ -25,13 +25,13 @@ export function SampleForm() {
     const analytical_method = formData.get("analytical_method");
     const analytical_lab = formData.get("analytical_lab");
     const date_analyzed = formData.get("date_analyzed");
-    const psilocybin_content = formData.get("psilocybin_content");
-    const psilocin_content = formData.get("psilocin_content");
-    const baeocystin_content = formData.get("baeocystin_content");
-    const nor_baeocystin_content = formData.get("nor_baeocystin_content");
+    const psilocybin_content = formData.get("psilocybin_content") || 0.0;
+    const psilocin_content = formData.get("psilocin_content") || 0.0;
+    const baeocystin_content = formData.get("baeocystin_content") || 0.0;
+    const nor_baeocystin_content = formData.get("nor_baeocystin_content") || 0.0;
     const total_psilocybin_equivalents = formData.get(
       "total_psilocybin_equivalents",
-    );
+    ) || 0.0;
     const supabase = createServerActionClient({ cookies });
     const response = await supabase.from("psilocybe").insert({
       sample_id,
