@@ -1,0 +1,14 @@
+.active {
+    font-weight: 900;
+    text-decoration: underline;
+  }
+  
+  header h2:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
